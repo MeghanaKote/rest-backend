@@ -13,9 +13,9 @@ public class Admin {
     private String first_name;
     private String last_name;
     private String email;
-    private String phone_number;
+    private int phone_number;
 
-    public Admin(int admin_id, String first_name, String last_name, String email, String phone_number) {
+    public Admin(int admin_id, String first_name, String last_name, String email, int phone_number) {
         this.admin_id = admin_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -55,11 +55,11 @@ public class Admin {
         this.email = email;
     }
 
-    public String getPhone_number() {
+    public int getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(String phone_number) {
+    public void setPhone_number(int phone_number) {
         this.phone_number = phone_number;
     }
 }
