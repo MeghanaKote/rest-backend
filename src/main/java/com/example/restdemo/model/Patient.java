@@ -21,8 +21,7 @@ public class Patient {
     private String emailId;
     private String address;
 
-    public Patient(Long patientId, String firstName, String lastName, int age, LocalDate dateOfBirth, String gender, String phoneNumber, String emailId, String address) {
-        this.patientId = patientId;
+    public Patient(String firstName, String lastName, int age, LocalDate dateOfBirth, String gender, String phoneNumber, String emailId, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
