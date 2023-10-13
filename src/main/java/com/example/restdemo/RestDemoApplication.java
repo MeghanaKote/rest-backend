@@ -10,4 +10,34 @@ public class RestDemoApplication {
 		SpringApplication.run(RestDemoApplication.class, args);
 	}
 //commit 2
+    /*
+
++--------------------------------------------------------------------------------------+
+|                                     com.example.restbackend.model                       |
++--------------------------------------------------------------------------------------+
+|                                         Patient                                       |
++--------------------------------------------------------------------------------------+
+|- id: Long                                                                            |
+|- name: String                                                                       |
+|- age: int                                                                      |
+|- address: String                                                                        |
+|- phoneno: varchar                                                                      |
++--------------------------------------------------------------------------------------+
+|+ Patient()                                                                              |
+|+ ToDoList(title: String, author: String, isbn: String, pageCount: int)                   |
+|+ getId(): Long                                                                       |
+|+ setId(id: Long): void                                                               |
+|+ getTitle(): String                                                                  |
+|+ setTitle(title: String): void                                                       |
+|+ getAuthor(): String                                                                 |
+|+ setAuthor(author: String): void                                                     |
+|+ getIsbn(): String                                                                   |
+|+ setIsbn(isbn: String): void                                                         |
+|+ getPageCount(): int                                                                 |
+|+ setPageCount(pageCount: int): void                                                  |
++--------------------------------------------------------------------------------------+
+
+
+     */
+
 }
