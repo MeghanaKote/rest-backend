@@ -7,6 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class RestDemoApplicationTests {
 
 	@Test
+
+	//@ContextConfiguration()
 	void contextLoads() {
 	}
 
