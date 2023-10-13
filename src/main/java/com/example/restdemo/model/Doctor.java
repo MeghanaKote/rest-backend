@@ -7,19 +7,19 @@ public class Doctor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "DOC_ID")
+   // @Column(name = "DOC_ID")
     private long doctorId;
 
-    @Column(name = "DOC_NAME")
+   // @Column(name = "DOC_NAME")
     private String doctorName;
 
-    @Column(name = "DOC_ADDRESS")
+    //@Column(name = "DOC_ADDRESS")
     private String doctorAddress;
 
-    @Column(name = "PHONE_NO")
+   // @Column(name = "PHONE_NO")
     private long doctorPhoneNO;
 
-    @Column(name = "DEPARTMENT")
+   // @Column(name = "DEPARTMENT")
     private String departmentName;
 
 
