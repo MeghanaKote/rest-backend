@@ -10,8 +10,9 @@ import java.time.LocalDate;
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String name;
+    private Long patientId;
+    private String firstName;
+    private String lastName;
 
     private int age;
     private LocalDate dateOfBirth;
@@ -20,9 +21,10 @@ public class Patient {
     private String emailId;
     private String address;
 
-    public Patient(Long id, String name, int age, LocalDate dateOfBirth, String gender, String phoneNumber, String emailId, String address) {
-        this.id = id;
-        this.name = name;
+    public Patient(Long patientId, String firstName, String lastName, int age, LocalDate dateOfBirth, String gender, String phoneNumber, String emailId, String address) {
+        this.patientId = patientId;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.age = age;
         this.dateOfBirth = dateOfBirth;
         this.gender = gender;
@@ -31,20 +33,28 @@ public class Patient {
         this.address = address;
     }
 
-    public Long getId() {
-        return id;
+    public Long getPatientId() {
+        return patientId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPatientId(Long patientId) {
+        this.patientId = patientId;
     }
 
-    public String getName() {
-        return name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public int getAge() {
