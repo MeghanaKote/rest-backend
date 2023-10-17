@@ -15,6 +15,9 @@ public class Admin {
     private String email;
     private int phone_number;
 
+    public Admin() {
+    }
+
     public Admin(int admin_id, String first_name, String last_name, String email, int phone_number) {
         this.admin_id = admin_id;
         this.first_name = first_name;
