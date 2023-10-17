@@ -21,7 +21,11 @@ public class Patient {
     private String emailId;
     private String address;
 
-    public Patient(String firstName, String lastName, int age, String dateOfBirth, String gender, String phoneNumber, String emailId, String address) {
+    public Patient() {
+    }
+
+    public Patient(Long patientId, String firstName, String lastName, int age, String dateOfBirth, String gender, String phoneNumber, String emailId, String address) {
+        this.patientId = patientId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
