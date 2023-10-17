@@ -10,23 +10,23 @@ import jakarta.persistence.Id;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private String Role;
     private String Username;
     private String password;
 
-    public User(int id, String role, String username, String password) {
+    public User(Long id, String role, String username, String password) {
         this.id = id;
         this.Role = role;
         this.Username = username;
         this.password = password;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

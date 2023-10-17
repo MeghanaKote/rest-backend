@@ -30,9 +30,9 @@ public class AdminControllerTest {
     private AdminRepository adminRepository;
 
     List<Admin> expectedAdmin = List.of(
-            new Admin(1,"John","Doe","john@gmail.com",83674833),
-            new Admin(2,"Tina","Joe","tina@gmail.com",847637633),
-            new Admin(3,"Gary","Paul","gary@gmail.com",87645290)
+            new Admin(1L,"John","Doe","john@gmail.com",83674833L),
+            new Admin(2L,"Tina","Joe","tina@gmail.com",847637633L),
+            new Admin(3L,"Gary","Paul","gary@gmail.com",87645290L)
     );
 
     @BeforeEach

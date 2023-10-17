@@ -9,16 +9,16 @@ import jakarta.persistence.Id;
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int admin_id;
+    private Long admin_id;
     private String first_name;
     private String last_name;
     private String email;
-    private int phone_number;
+    private Long phone_number;
 
     public Admin() {
     }
 
-    public Admin(int admin_id, String first_name, String last_name, String email, int phone_number) {
+    public Admin(Long admin_id, String first_name, String last_name, String email, Long phone_number) {
         this.admin_id = admin_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -26,11 +26,11 @@ public class Admin {
         this.phone_number = phone_number;
     }
 
-    public int getAdmin_id() {
+    public Long getAdmin_id() {
         return admin_id;
     }
 
-    public void setAdmin_id(int admin_id) {
+    public void setAdmin_id(Long admin_id) {
         this.admin_id = admin_id;
     }
 
@@ -58,11 +58,11 @@ public class Admin {
         this.email = email;
     }
 
-    public int getPhone_number() {
+    public Long getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(int phone_number) {
+    public void setPhone_number(Long phone_number) {
         this.phone_number = phone_number;
     }
 }
