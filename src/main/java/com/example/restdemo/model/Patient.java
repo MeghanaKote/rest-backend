@@ -15,13 +15,13 @@ public class Patient {
     private String lastName;
 
     private int age;
-    private LocalDate dateOfBirth;
+    private String dateOfBirth;
     private String gender;
     private String phoneNumber;
     private String emailId;
     private String address;
 
-    public Patient(String firstName, String lastName, int age, LocalDate dateOfBirth, String gender, String phoneNumber, String emailId, String address) {
+    public Patient(String firstName, String lastName, int age, String dateOfBirth, String gender, String phoneNumber, String emailId, String address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -64,11 +64,11 @@ public class Patient {
         this.age = age;
     }
 
-    public LocalDate getDateOfBirth() {
+    public String getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
