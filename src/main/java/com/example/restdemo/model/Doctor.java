@@ -1,73 +1,77 @@
 package com.example.restdemo.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
-import jakarta.persistence.*;
-
+@Entity
 public class Doctor {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-   // @Column(name = "DOC_ID")
-    private long doctorId;
-
-   // @Column(name = "DOC_NAME")
-    private String doctorName;
-
-    //@Column(name = "DOC_ADDRESS")
-    private String doctorAddress;
-
-   // @Column(name = "PHONE_NO")
-    private long doctorPhoneNO;
-
-   // @Column(name = "DEPARTMENT")
-    private String departmentName;
+    private Long DoctorId;
+    private  String DoctorName;
+    private Long DoctorPhoneNo;
+    private String DoctorEmailId;
+    private String DoctorAddress;
+    private String DoctorDept;
 
 
-
-    public long getDoctorId()
-    {
-        return doctorId;
+    public Doctor(Long doctorId, String doctorName, Long doctorPhoneNo, String doctorEmailId, String doctorAddress, String doctorDept) {
+        DoctorId = doctorId;
+        DoctorName = doctorName;
+        DoctorPhoneNo = doctorPhoneNo;
+        DoctorEmailId = doctorEmailId;
+        DoctorAddress = doctorAddress;
+        DoctorDept = doctorDept;
     }
 
-    public void setDoctorId(long doctorId)
-    {
-        this.doctorId = doctorId;
+    public Long getDoctorId() {
+        return DoctorId;
     }
 
-    public String getDoctorName()
-    {
-        return doctorName;
+    public void setDoctorId(Long doctorId) {
+        DoctorId = doctorId;
     }
 
-    public void setDoctorName(String doctorName)
-    {
-        this.doctorName = doctorName;
+    public String getDoctorName() {
+        return DoctorName;
     }
 
-    public String getDoctorAddress()
-    {
-        return doctorAddress;
+    public void setDoctorName(String doctorName) {
+        DoctorName = doctorName;
     }
 
-    public void setDoctorAddress(String doctorAddress)
-    {
-        this.doctorAddress = doctorAddress;
+    public Long getDoctorPhoneNo() {
+        return DoctorPhoneNo;
     }
 
-    public long getDoctorPhoneNO()
-    {
-        return doctorPhoneNO;
+    public void setDoctorPhoneNo(Long doctorPhoneNo) {
+        DoctorPhoneNo = doctorPhoneNo;
     }
 
-    public void setDoctorPhoneNO(long doctorPhoneNO)
-    {
-        this.doctorPhoneNO = doctorPhoneNO;
-    }
-    public void departmentName(String departmentName)
-    {
-        this.departmentName = departmentName;
+    public String getDoctorEmailId() {
+        return DoctorEmailId;
     }
 
+    public void setDoctorEmailId(String doctorEmailId) {
+        DoctorEmailId = doctorEmailId;
+    }
 
+    public String getDoctorAddress() {
+        return DoctorAddress;
+    }
 
+    public void setDoctorAddress(String doctorAddress) {
+        DoctorAddress = doctorAddress;
+    }
+
+    public String getDoctorDept() {
+        return DoctorDept;
+    }
+
+    public void setDoctorDept(String doctorDept) {
+        DoctorDept = doctorDept;
+    }
 }
