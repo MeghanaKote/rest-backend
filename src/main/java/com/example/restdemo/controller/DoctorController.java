@@ -13,7 +13,7 @@ public class DoctorController {
     private DoctorRepository doctorRepository;
 
     @GetMapping("/doctor")
-    public List<Doctor> getAllDoctor() {
+    public List<Doctor> expectedDoctor() {
 
         return doctorRepository.findAll();
     }
