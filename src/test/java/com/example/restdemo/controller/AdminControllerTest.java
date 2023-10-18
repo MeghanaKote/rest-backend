@@ -1,4 +1,4 @@
-package com.example.restdemo.controllerTest;
+package com.example.restdemo.controller;
 
 import com.example.restdemo.model.Admin;
 import com.example.restdemo.repository.AdminRepository;

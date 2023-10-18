@@ -27,6 +27,13 @@ public class Doctor {
         DoctorDept = doctorDept;
     }
 
+    public Doctor(Long doctorId) {
+        DoctorId = doctorId;
+    }
+
+    public Doctor() {
+    }
+
     public Long getDoctorId() {
         return DoctorId;
     }

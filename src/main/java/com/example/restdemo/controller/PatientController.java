@@ -21,4 +21,15 @@ public class PatientController {
 
         return patientRepository.findAll();
     }
+    @PostMapping("/addPatient")
+
+    public ResponseEntity<Patient> createPatient(@RequestBody Patient patient) {
+
+        // Save the patient entity using the repository
+
+        Patient savedPatient = patientRepository.save(patient);
+
+        return ResponseEntity.ok(patient);
+
+    }
 }
