@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Information Form</title>
+</head>
+<body>
+
+<h1>Patient Information Form</h1>
+<form action="/addPatient" method="post" id="patientForm">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName" required><br><br>
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName" required><br><br>
+
+
+    <button type="button" onclick="submitForm()">Submit</button>
+
+</form>
+<script>
+           function submitForm() {
+
+            var form = document.getElementById("patientForm");
+
+            var firstName = form.elements.firstName.value;
+
+            var lastName = form.elements.lastName.value;
+
+            var data = {
+
+                firstName: firstName,
+
+                lastName : lastName
+
+            };
+
+
+
+            fetch("/addPatient", {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type": "application/json"
+
+                },
+
+                body: JSON.stringify(data)
+
+            })
+
+            .then(response => response.json())
+
+            .then(result => {
+
+                // Handle the response from the server
+
+                console.log(result);
+
+            })
+
+            .catch(error => {
+
+                // Handle any errors
+
+                console.error("Error:", error);
+
+            });
+
+        }
+
+    </script>
+</body>
+</html>
+
