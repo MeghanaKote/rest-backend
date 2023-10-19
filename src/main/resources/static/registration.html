@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+</head>
+<body>
+<h1>Registration Form</h1>
+<form method="post" id="registrationForm">
+  <label for="first_name">First Name:</label>
+  <input type="text" id="first_name" name="first_name" required><br>
+
+  <label for="last_name">Last Name:</label>
+  <input type="text" id="last_name" name="last_name" required><br>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required><br>
+
+  <label for="phone_number">Phone Number:</label>
+  <input type="text" id="phone_number" name="phone_number" required><br>
+
+  <button type="button" onclick="validateForm()">Submit</button>
+</form>
+<script>
+        // Function to validate the form and submit data
+        function validateForm() {
+            // Get form elements
+            var firstName = document.getElementById("first_name").value;
+            var lastName = document.getElementById("last_name").value;
+            var email = document.getElementById("email").value;
+            var phoneNumber = document.getElementById("phone_number").value;
+
+            // Check if required fields are not empty
+            if (firstName === "" || lastName === "" || email === "" || phoneNumber === "") {
+                alert("All fields are required");
+                return;
+            }
+
+            // Validate email using a simple regex pattern
+            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(email)) {
+                alert("Invalid email address");
+                return;
+            }
+
+            // Validate phone number (you can customize the validation as needed)
+            var phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phoneNumber)) {
+                alert("Invalid phone number");
+                return;
+            }
+
+            var data = {
+                first_name: firstName,
+                last_name: lastName,
+                email: email,
+                phone_number: phoneNumber
+            };
+
+            fetch("/register", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                // Handle the response from the server
+                console.log(result);
+            })
+            .catch(error => {
+                // Handle any errors
+                console.error("Error:", error);
+            });
+        }
+    </script>
+</body>
+</html>
