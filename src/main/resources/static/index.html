@@ -1,44 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient Information Form</title>
+    <title>Patient Symptom Log </title>
 </head>
 <body>
+<h1>Patient Symptom Log</h1>
+<form method="post" action="/addSymptom" id="symptomRequest">
 
-<h1>Patient Information Form</h1>
-<form action="/addPatient" method="post" id="patientForm">
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" name="firstName" required><br><br>
+    <label for="patientId">Patient ID:</label>
+    <input type="text" id="patientId" name="patientId" required><br>
 
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" name="lastName" required><br><br>
+    <label for="symptom">Symptom:</label>
+    <input type="text" id="symptom" name="symptom" required><br>
 
+    <label for="severity">Severity:</label>
+    <input type="text" id="severity" name="severity" required><br>
 
-    <button type="button" onclick="submitForm()">Submit</button>
-
+    <button type="submit" onclick="submitForm()">Register Symptom</button>
 </form>
 <script>
            function submitForm() {
 
-            var form = document.getElementById("patientForm");
 
-            var firstName = form.elements.firstName.value;
+            var form = document.getElementById("symptomRequest");
 
-            var lastName = form.elements.lastName.value;
+            var patientId = form.elements.patientId.value;
+
+            var symptom = form.elements.symptom.value;
+
+            var severity = form.elements.severity.value;
+
+
 
             var data = {
 
-                firstName: firstName,
+                patientId : patientId,
 
-                lastName : lastName
+                symptom : symptom,
+
+                severity : severity
 
             };
 
 
-
-            fetch("/addPatient", {
+            alert(patientId);
+            fetch("/addSymptom", {
 
                 method: "POST",
 
