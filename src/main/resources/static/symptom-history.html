@@ -1,81 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Symptom Log</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    #symptomTable thead {
-      display: none; /* Hide the table headers by default */
-    }
-  </style>
-</head>
-<body>
-<form method="post" action="/getSymptom" id="getSymptomForm" class="">
-  <div class="form-group">
-    <label for="patientId">Patient ID:</label>
-    <input type="text" class="form-control" id="getPatientId" name="patientId" required>
-  </div>
-</form>
-<button type="button" class="btn btn-primary" onclick="getSymptom()">Symptom Log</button>
-<table id="symptomTable">
-  <thead>
-  <tr>
-    <th>Symptom ID</th>
-    <th>Patient ID</th>
-    <th>Symptom</th>
-    <th>Severity</th>
-  </tr>
-  </thead>
-  <tbody></tbody>
-</table>
+        body {
+            background-image: url('https://img.freepik.com/free-photo/stethoscope-capsules-bottle-grey-background_23-2147827549.jpg?w=740&t=st=1698167521~exp=1698168121~hmac=9b584de00e0051287089272524b0542bcc654662ee486be69d08deaa1c804df8');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            font-family: Arial, Helvetica, sans-serif;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
+        #symptomTable thead {
+            display: none; /* Hide the table headers by default */
+        }
+    </style>
+</head>
+
+<body>
+<div class="container mt-5">
+  <form method="post" action="/getSymptom" id="getSymptomForm">
+    <div class="form-group">
+      <label for="patientId">Patient ID:</label>
+      <input type="text" class="form-control" id="getPatientId" name="patientId" required>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="getSymptom()">Symptom Log</button>
+  </form>
+  <table id="symptomTable" class="table mt-3">
+    <thead class="thead-dark">
+    <tr>
+      <th>Patient ID</th>
+      <th>Symptom</th>
+      <th>Severity</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+</div>
 
 <script>
-function getSymptom() {
-     var patientId = document.getElementById("getPatientId").value;
-     document.getElementById("symptomTable").getElementsByTagName("thead")[0].style.display = "table-header-group";
+        function getSymptom() {
+            var patientId = document.getElementById("getPatientId").value;
+            document.getElementById("symptomTable").getElementsByTagName("thead")[0].style.display = "table-header-group";
 
-    // Make a fetch request to your Spring Boot endpoint
-    fetch('/getSymptom?patientId=' + patientId)
-        .then(function(response) {
-            if (response.status !== 200) {
-                console.log('Error: ' + response.status);
-                return;
-            }
-            return response.json(); // Assuming the response is JSON
-        })
-        .then(function(data) {
+            // Make a fetch request to your Spring Boot endpoint
+            fetch('/getSymptom?patientId=' + patientId)
+                .then(function (response) {
+                    if (response.status !== 200) {
+                        console.log('Error: ' + response.status);
+                        return;
+                    }
+                    return response.json(); // Assuming the response is JSON
+                })
+                .then(function (data) {
+                    var jsonData = data;
+                    var tableBody = document.getElementById("symptomTable").getElementsByTagName('tbody')[0];
 
-            var symptomResult = document.getElementById('symptomResult');
-         //   symptomResult.innerHTML = '<pre>' + JSON.stringify(data, null, 2) + '</pre>';
-         var jsonData  = data;
-        // Get the table body
-        var tableBody = document.getElementById("symptomTable").getElementsByTagName('tbody')[0];
-        // Clear existing rows in the table
-        while (tableBody.firstChild) {
-            tableBody.removeChild(tableBody.firstChild);
+                    while (tableBody.firstChild) {
+                        tableBody.removeChild(tableBody.firstChild);
+                    }
+
+                    for (var i = 0; i < jsonData.length; i++) {
+                        var row = tableBody.insertRow(i);
+
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        var cell3 = row.insertCell(2);
+
+
+                        cell1.innerHTML = jsonData[i].patientId;
+                        cell2.innerHTML = jsonData[i].symptom;
+                        cell3.innerHTML = jsonData[i].severity;
+                    }
+                })
+                .catch(function (error) {
+                    console.log('Fetch error: ' + error);
+                });
         }
-        // Loop through the JSON data and populate the table
-        for (var i = 0; i < jsonData.length; i++) {
-            var row = tableBody.insertRow(i);
+    </script>
 
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            var cell4 = row.insertCell(3);
-
-            cell1.innerHTML = jsonData[i].symptomId;
-            cell2.innerHTML = jsonData[i].patientId;
-            cell3.innerHTML = jsonData[i].symptom;
-            cell4.innerHTML = jsonData[i].severity;
-        }
-
-        })
-        .catch(function(error) {
-            console.log('Fetch error: ' + error);
-        });
-}
-</script>
-
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
