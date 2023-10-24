@@ -16,7 +16,7 @@
     <label for="severity">Severity:</label>
     <input type="text" id="severity" name="severity" required><br>
 
-    <button type="submit" onclick="submitForm()">Register Symptom</button>
+    <button type=button onclick="submitForm()">Register Symptom</button>
 </form>
 <script>
            function submitForm() {
@@ -43,7 +43,7 @@
             };
 
 
-            alert(patientId);
+
             fetch("/addSymptom", {
 
                 method: "POST",
