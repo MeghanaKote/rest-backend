@@ -5,8 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface SymptomRequestRepository extends JpaRepository<SymptomRequest,Long> {
+public interface SymptomRequestRepository extends JpaRepository<SymptomRequest, Long> {
 
-   //List<SymptomRequest> getSymptomsByPatientId(Long patientId);
-   List<SymptomRequest> findByPatientId(Long patientId);
+    //List<SymptomRequest> getSymptomsByPatientId(Long patientId);
+    List<SymptomRequest> findByPatientId(Long patientId);
 }

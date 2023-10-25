@@ -16,11 +16,13 @@ import java.util.List;
 public class PatientController {
     @Autowired
     private PatientRepository patientRepository;
+
     @GetMapping("/patient")
     public List<Patient> getAllPatient() {
 
         return patientRepository.findAll();
     }
+
     @PostMapping("/addPatient")
 
     public ResponseEntity<Patient> createPatient(@RequestBody Patient patient) {

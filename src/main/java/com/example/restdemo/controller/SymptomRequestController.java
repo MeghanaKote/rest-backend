@@ -29,19 +29,15 @@ public class SymptomRequestController {
     private PatientRepository patientRepository;
 
     @PostMapping("/addSymptom")
-    public ResponseEntity<SymptomRequest> createSymptom(@RequestBody SymptomRequest symptomRequest){
+    public ResponseEntity<SymptomRequest> createSymptom(@RequestBody SymptomRequest symptomRequest) {
 
         SymptomRequest savedPatient = symptomRequestRepository.save(symptomRequest);
 
         return ResponseEntity.ok(symptomRequest);
     }
+
     @Autowired
     private SymptomService symptomService;
-
-//    @GetMapping("/symptom-history")
-//    public String getSymptomsHistory() {
-//        return "symptom-history";
-//    }
 
     @GetMapping("/symptom-history")
     public ResponseEntity<String> serveHtmlPage() {
@@ -58,12 +54,13 @@ public class SymptomRequestController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error loading HTML content");
         }
     }
-   @GetMapping("/getSymptom")
+
+    @GetMapping("/getSymptom")
     public List<SymptomRequest> getSymptomsByPatientId(@RequestParam("patientId") Long patientId) {
         // Use the patientId to retrieve symptoms from your service
-       List<SymptomRequest> symptoms = symptomService.getSymptomsByPatientId(patientId);
-       return symptoms;
-   //return "symptom-list"; // Replace with the name of your view template
-  }
+        List<SymptomRequest> symptoms = symptomService.getSymptomsByPatientId(patientId);
+        return symptoms;
+        //return "symptom-list"; // Replace with the name of your view template
+    }
 
 }
