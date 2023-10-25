@@ -1,78 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>Registration Form</title>
-</head>
-<body>
-<h1>Registration Form</h1>
-<form method="post" id="registrationForm">
-  <label for="first_name">First Name:</label>
-  <input type="text" id="first_name" name="first_name" required><br>
-
-  <label for="last_name">Last Name:</label>
-  <input type="text" id="last_name" name="last_name" required><br>
-
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" required><br>
-
-  <label for="phone_number">Phone Number:</label>
-  <input type="text" id="phone_number" name="phone_number" required><br>
-
-  <button type="button" onclick="validateForm()">Submit</button>
-</form>
-<script>
-        // Function to validate the form and submit data
-        function validateForm() {
-            // Get form elements
-            var firstName = document.getElementById("first_name").value;
-            var lastName = document.getElementById("last_name").value;
-            var email = document.getElementById("email").value;
-            var phoneNumber = document.getElementById("phone_number").value;
-
-            // Check if required fields are not empty
-            if (firstName === "" || lastName === "" || email === "" || phoneNumber === "") {
-                alert("All fields are required");
-                return;
-            }
-
-            // Validate email using a simple regex pattern
-            var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-            if (!emailPattern.test(email)) {
-                alert("Invalid email address");
-                return;
-            }
-
-            // Validate phone number (you can customize the validation as needed)
-            var phonePattern = /^\d{10}$/;
-            if (!phonePattern.test(phoneNumber)) {
-                alert("Invalid phone number");
-                return;
-            }
-
-            var data = {
-                first_name: firstName,
-                last_name: lastName,
-                email: email,
-                phone_number: phoneNumber
-            };
-
-            fetch("/register", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => response.json())
-            .then(result => {
-                // Handle the response from the server
-                console.log(result);
-            })
-            .catch(error => {
-                // Handle any errors
-                console.error("Error:", error);
-            });
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-photo/stethoscope-capsules-bottle-grey-background_23-2147827549.jpg?w=740&t=st=1698167521~exp=1698168121~hmac=9b584de00e0051287089272524b0542bcc654662ee486be69d08deaa1c804df8');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            font-family: Arial, Helvetica, sans-serif;
         }
-    </script>
+
+        #appointmentForm thead {
+            display: none; /* Hide the table headers by default */
+        }
+    </style>
+</head>
+
+<body>
+<div class="container mt-5">
+    <form method="post" action="/bookAppointment" id="appointmentForm">
+        <div class="form-group">
+            <label for="patientName">Patient Name:</label>
+            <input type="text" class="form-control" id="patientName" name="patientName" required>
+        </div>
+        <div class="form-group">
+            <label for="contactNumber">Contact Number:</label>
+            <input type="tel" class="form-control" id="contactNumber" name="contactNumber" required>
+        </div>
+        <div class="form-group">
+            <label for="preferredDate">Preferred Date:</label>
+            <input type="date" class="form-control" id="preferredDate" name="preferredDate" required>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="bookAppointment()">Book Appointment</button>
+    </form>
+</div>
+
+<script>
+    function bookAppointment() {
+        var patientName = document.getElementById("patientName").value;
+        var contactNumber = document.getElementById("contactNumber").value;
+        var preferredDate = document.getElementById("preferredDate").value;
+
+        // Make a fetch request to your server endpoint for booking appointments
+        fetch('/bookAppointment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                patientName: patientName,
+                contactNumber: contactNumber,
+                preferredDate: preferredDate
+            })
+        })
+        .then(function (response) {
+            if (response.status !== 200) {
+                console.log('Error: ' + response.status);
+                return;
+            }
+            return response.json(); // Assuming the response is JSON
+        })
+        .then(function (data) {
+            // Handle the response from the server (e.g., display success message)
+        })
+        .catch(function (error) {
+            console.log('Fetch error: ' + error);
+        });
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
