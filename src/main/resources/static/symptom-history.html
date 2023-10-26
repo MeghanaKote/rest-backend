@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <title>Symptom Log</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
+    <meta charset="UTF-8">
+    <title>Symptom Log</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
         body {
             background-image: url('https://img.freepik.com/free-photo/stethoscope-capsules-bottle-grey-background_23-2147827549.jpg?w=740&t=st=1698167521~exp=1698168121~hmac=9b584de00e0051287089272524b0542bcc654662ee486be69d08deaa1c804df8');
             background-size: cover;
@@ -21,28 +21,32 @@
         #symptomTable thead {
             display: none; /* Hide the table headers by default */
         }
+
+
+
+
     </style>
 </head>
 
 <body>
 <div class="container mt-5">
-  <form method="post" action="/getSymptom" id="getSymptomForm">
-    <div class="form-group">
-      <label for="patientId">Patient ID:</label>
-      <input type="text" class="form-control" id="getPatientId" name="patientId" required>
-    </div>
-    <button type="button" class="btn btn-primary" onclick="getSymptom()">Symptom Log</button>
-  </form>
-  <table id="symptomTable" class="table mt-3">
-    <thead class="thead-dark">
-    <tr>
-      <th>Patient ID</th>
-      <th>Symptom</th>
-      <th>Severity</th>
-    </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
+    <form method="post" action="/getSymptom" id="getSymptomForm">
+        <div class="form-group">
+            <label for="patientId">Patient ID:</label>
+            <input type="text" class="form-control" id="getPatientId" name="patientId" required>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="getSymptom()">Symptom Log</button>
+    </form>
+    <table id="symptomTable" class="table mt-3">
+        <thead class="thead-dark">
+        <tr>
+            <th>Patient ID</th>
+            <th>Symptom</th>
+            <th>Severity</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
 </div>
 
 <script>
@@ -62,29 +66,40 @@
                 .then(function (data) {
                     var jsonData = data;
                     var tableBody = document.getElementById("symptomTable").getElementsByTagName('tbody')[0];
+                    console.log(jsonData.length);
 
-                    while (tableBody.firstChild) {
-                        tableBody.removeChild(tableBody.firstChild);
-                    }
+                    if (data.length === 0) {
+                        var noDataRow = tableBody.insertRow(0);
+                        var cell = noDataRow.insertCell(0);
+                        cell.colSpan = 3;
+                        cell.innerHTML = "The patient's symptom log is empty.";
+                    } else {
+                        while (tableBody.firstChild) {
+                            tableBody.removeChild(tableBody.firstChild);
+                        }
 
-                    for (var i = 0; i < jsonData.length; i++) {
-                        var row = tableBody.insertRow(i);
+                        for (var i = 0; i < jsonData.length; i++) {
+                            var row = tableBody.insertRow(i);
 
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        var cell3 = row.insertCell(2);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            var cell3 = row.insertCell(2);
 
-
-                        cell1.innerHTML = jsonData[i].patientId;
-                        cell2.innerHTML = jsonData[i].symptom;
-                        cell3.innerHTML = jsonData[i].severity;
+                            cell1.innerHTML = jsonData[i].patientId;
+                            cell2.innerHTML = jsonData[i].symptom;
+                            cell3.innerHTML = jsonData[i].severity;
+                        }
                     }
                 })
                 .catch(function (error) {
                     console.log('Fetch error: ' + error);
                 });
         }
-    </script>
+
+
+
+
+</script>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
