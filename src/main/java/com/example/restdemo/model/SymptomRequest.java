@@ -1,9 +1,8 @@
 package com.example.restdemo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.time.LocalDateTime;
 
 @Entity
 public class SymptomRequest {
@@ -17,7 +16,14 @@ public class SymptomRequest {
 
     private String severity;
 
+    private LocalDateTime createdDateTime;
+
+    protected void onCreate() {
+    }
+
+
     public SymptomRequest() {
+        this.createdDateTime = LocalDateTime.now();
     }
 
     public Long getSymptomId() {
@@ -52,10 +58,19 @@ public class SymptomRequest {
         this.severity = severity;
     }
 
+    public LocalDateTime getCreatedDateTime() {
+        return createdDateTime;
+    }
+
+    public void setCreatedDateTime(LocalDateTime createdDateTime) {
+        this.createdDateTime = createdDateTime;
+    }
+
     public SymptomRequest(Long symptomId, Long patientId, String symptom, String severity) {
         this.symptomId = symptomId;
         this.patientId = patientId;
         this.symptom = symptom;
         this.severity = severity;
+        this.createdDateTime = LocalDateTime.now();
     }
 }
