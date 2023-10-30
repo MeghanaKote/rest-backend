@@ -8,20 +8,27 @@
     <!-- Include Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Diplomata&display=swap" rel="stylesheet">
+
+
     <style>
         body {
-            background-image: url('https://primary.jwwb.nl/unsplash/S1v7hVUiCg0.jpg?enable-io=true&amp;fit=bounds&amp;width=1920&amp;height=1920');
+            background-image: url('https://images.pexels.com/photos/7723522/pexels-photo-7723522.jpeg');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center center;
             font-family: Arial, Helvetica, sans-serif;
         }
-        #jw-header-title {
-            font-family: 'Brush Script MT', cursive;
-            font-style: italic;
-            font-weight: bold;
-            font-size: 50px;
+
+         #jw-header-title {
+        font-family: 'Diplomata';
+        font-style: italic;
+        font-weight: bold;
+         font-size: 40px;
+          color: Burgundy;
         }
         .mb-4 {
             font-family: 'Georgia', serif;
@@ -29,7 +36,7 @@
         }
         .navbar {
             overflow: hidden;
-            background-color: #808080;
+
         }
         .navbar a {
             float: left;
@@ -39,6 +46,7 @@
             padding: 14px 16px;
             text-decoration: none;
         }
+
         .dropbtn {
            background-color: #3498db;
            color: white;
@@ -71,7 +79,7 @@
 
         /* Change color on hover */
         .dropdown-content a:hover {
-          background-color: #d3d3d3;
+          background-color: transparent;
         }
 
         /* Show the dropdown content when hovering over the dropdown button */
@@ -87,15 +95,58 @@
         }
 
                 .welcome-box {
-                background-color: #FFDAB9; /* Peach color */
+                background-color: #FFF1DC; /* Peach color */
                 padding: 20px;
                 border-radius: 10px;
                 margin-top: 20px;
-
-        }
+                margin-bottom: 20px;
 
 
           }
+          .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .navbar-nav li {
+            margin: 0 10px;
+        }
+
+        .navbar-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .welcome-box h1 {
+    font-family: 'Agbalumo', sans-serif; /* Add the desired font name here */
+    color: grey;
+    font-weight: bold;
+}
+
+.welcome-box p {
+    font-family:  'Lugrasimo', cursive;/* Add the desired font name here */
+    font-size: 15px;
+
+
+}
+
+.box {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    max-width: 600px; /* Adjust the value to your preference */
+    margin: 0 auto; /* This centers the box on the page */
+}
+
           .success-message {
               background-color: #4CAF50; /* Green background color */
               color: white;             /* White text color */
@@ -130,41 +181,41 @@
                         <h1 id="jw-header-title" class="jw-header-title">
                             Cancer TeleCare
                         </h1>
+                        <div class="navbar">
+                        <a href="#home">Home</a>
+                        <div class="dropdown">
+                            <button class="dropbtn">Community Hub
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#">Information</a>
+                                <a href="#">Videos</a>
+                                <a href="#">Podcasts</a>
+                                <a href="#">Articles</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropbtn">Services
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="/bookAppointment">Appointment Info</a>
+                                <a href="#">Health Report</a>
+                                <a href="#">To Do List</a>
+                                <a href="#">Tracking Medication</a>
+                                <a href="/symptom-history">Symptoms History</a>
+
+                            </div>
+                        </div>
+                        <a href="#Contact">Contact</a>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </div>
+
 </header>
-
-<div class="navbar">
-    <a href="#home">Home</a>
-    <div class="dropdown">
-        <button class="dropbtn">Community Hub
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="#">Information</a>
-            <a href="#">Videos</a>
-            <a href="#">Podcasts</a>
-            <a href="#">Articles</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn">Services
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="/bookAppointment">Appointment Info</a>
-            <a href="#">Health Report</a>
-            <a href="#">To Do List</a>
-            <a href="#">Tracking Medication</a>
-            <a href="/symptom-history">Symptoms History</a>
-
-        </div>
-    </div>
-    <a href="#Contact">Contact</a>
-</div>
 <div class="container welcome-box">
     <div class="jw-element-imagetext-container jw-element-imagetext-container--image">
         <div class="jw-element-image-container">
@@ -185,6 +236,7 @@
 </div>
 
 <div class="container">
+    <div class="box"> <!-- Add the box container here -->
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h1 class="mb-4">Patient Symptom Log</h1>
@@ -208,6 +260,7 @@
             </form>
 
 </div>
+    </div>
 
 <!-- Include Bootstrap JS and Popper.js -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
