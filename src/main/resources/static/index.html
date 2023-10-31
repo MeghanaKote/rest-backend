@@ -8,20 +8,27 @@
     <!-- Include Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Agbalumo:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lugrasimo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Diplomata&display=swap" rel="stylesheet">
+
+
     <style>
         body {
-            background-image: url('https://primary.jwwb.nl/unsplash/S1v7hVUiCg0.jpg?enable-io=true&amp;fit=bounds&amp;width=1920&amp;height=1920');
+            background-image: url('https://cdn-assets-eu.frontify.com/s3/frontify-enterprise-files-eu/eyJvYXV0aCI6eyJjbGllbnRfaWQiOiJmcm9udGlmeS1maW5kZXIifSwicGF0aCI6ImloaC1oZWFsdGhjYXJlLWJlcmhhZFwvZmlsZVwvREh2MndGUzkyVnc3bW1EaFQ1VjguanBnIn0:ihh-healthcare-berhad:uz4RN-bTXvIwsANMq1q--0SWwGulGasGvbOZTa04cCI?width={width}');
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: center center;
             font-family: Arial, Helvetica, sans-serif;
         }
-        #jw-header-title {
-            font-family: 'Brush Script MT', cursive;
-            font-style: italic;
-            font-weight: bold;
-            font-size: 50px;
+
+         #jw-header-title {
+        font-family: 'merriweather';
+        font-style: italic;
+        font-weight: bold;
+         font-size: 50px;
+          color: Burgundy;
         }
         .mb-4 {
             font-family: 'Georgia', serif;
@@ -29,19 +36,20 @@
         }
         .navbar {
             overflow: hidden;
-            background-color: #808080;
+
         }
         .navbar a {
             float: left;
             font-size: 16px;
-            color: white;
+            color: black;
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
         }
+
         .dropbtn {
-           background-color: #3498db;
-           color: white;
+           background-color: #fff;
+           color: black;
            padding: 10px 20px;
            border: none;
            cursor: pointer;
@@ -55,7 +63,7 @@
         .dropdown-content {
             display: none;
             position: fixed;
-            background-color: #f9f9f9;
+            background-color: #fff;
             min-width: 110px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
             z-index: 1000; /* Adjust the z-index to make sure it's higher than other content */
@@ -71,7 +79,7 @@
 
         /* Change color on hover */
         .dropdown-content a:hover {
-          background-color: #d3d3d3;
+          background-color: transparent;
         }
 
         /* Show the dropdown content when hovering over the dropdown button */
@@ -83,19 +91,62 @@
             align-items: center;
         }
         .logo-container img {
-            margin-right: 10px; /* Adjust the margin as needed */
+            margin-right: 0px; /* Adjust the margin as needed */
         }
 
                 .welcome-box {
-                background-color: #FFDAB9; /* Peach color */
+                background-color: #d3ddf6;
                 padding: 20px;
                 border-radius: 10px;
                 margin-top: 20px;
-
-        }
+                margin-bottom: 20px;
 
 
           }
+          .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin-right: 10px;
+            padding: 0;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .navbar-nav li {
+            margin: 0 10px;
+        }
+
+        .navbar-nav a {
+            color: black;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .welcome-box h1 {
+    font-family: 'Pacifico', sans-serif; /* Add the desired font name here */
+    color: black;
+
+}
+
+.welcome-box p {
+    font-family:'mukta', cursive;/* Add the desired font name here */
+    font-size: 20px;
+
+
+}
+
+.box {
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    max-width: 600px; /* Adjust the value to your preference */
+    margin: 0 auto; /* This centers the box on the page */
+}
+
           .success-message {
               background-color: #4CAF50; /* Green background color */
               color: white;             /* White text color */
@@ -126,45 +177,45 @@
                     <div class="logo-container">
                         <!-- Add the image here -->
                         <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQAre4KdF-fxSJujfEfC6PWzP8crwgeU8nN_VNQbRDAsTHSiEi4"
-                             alt="Cancer TeleCare Logo" style="max-height: 50px;">
+                             alt="Cancer TeleCare Logo" style="max-height: 80px;">
                         <h1 id="jw-header-title" class="jw-header-title">
                             Cancer TeleCare
                         </h1>
+                        <div class="navbar">
+                        <a href="#home">Home</a>
+                        <div class="dropdown">
+                            <button class="dropbtn">Community Hub
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="#">Information</a>
+                                <a href="#">Videos</a>
+                                <a href="#">Podcasts</a>
+                                <a href="#">Articles</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
+                            <button class="dropbtn">Services
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="/bookAppointment">Appointment Info</a>
+                                <a href="#">Health Report</a>
+                                <a href="#">To Do List</a>
+                                <a href="#">Tracking Medication</a>
+                                <a href="/symptom-history">Symptoms History</a>
+
+                            </div>
+                        </div>
+                        <a href="#Contact">Contact</a>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </div>
+
 </header>
-
-<div class="navbar">
-    <a href="#home">Home</a>
-    <div class="dropdown">
-        <button class="dropbtn">Community Hub
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="#">Information</a>
-            <a href="#">Videos</a>
-            <a href="#">Podcasts</a>
-            <a href="#">Articles</a>
-        </div>
-    </div>
-    <div class="dropdown">
-        <button class="dropbtn">Services
-            <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="/bookAppointment">Appointment Info</a>
-            <a href="#">Health Report</a>
-            <a href="#">To Do List</a>
-            <a href="#">Tracking Medication</a>
-            <a href="/symptom-history">Symptoms History</a>
-
-        </div>
-    </div>
-    <a href="#Contact">Contact</a>
-</div>
 <div class="container welcome-box">
     <div class="jw-element-imagetext-container jw-element-imagetext-container--image">
         <div class="jw-element-image-container">
@@ -185,6 +236,7 @@
 </div>
 
 <div class="container">
+    <div class="box"> <!-- Add the box container here -->
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h1 class="mb-4">Patient Symptom Log</h1>
@@ -208,6 +260,7 @@
             </form>
 
 </div>
+    </div>
 
 <!-- Include Bootstrap JS and Popper.js -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

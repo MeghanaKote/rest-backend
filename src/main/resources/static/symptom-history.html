@@ -17,6 +17,76 @@
             height: 100%;
             object-fit: cover;
         }
+        #jw-header-title {
+        font-family: 'merriweather';
+        font-style: italic;
+        font-weight: bold;
+         font-size: 50px;
+          color: Burgundy;
+        }
+        .mb-4 {
+            font-family: 'Georgia', serif;
+            font-size: 40px;
+        }
+        .navbar {
+            overflow: hidden;
+
+        }
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: black;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropbtn {
+           background-color: #cbd6e1;
+           color: black;
+           padding: 10px 20px;
+           border: none;
+           cursor: pointer;
+        }
+        /* Style the container (the div that contains the dropdown content) */
+        .dropdown {
+           position: relative;
+           display: inline-block;
+        }
+        /* Style the dropdown content */
+        .dropdown-content {
+            display: none;
+            position: fixed;
+            background-color: #fff;
+            min-width: 110px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1000; /* Adjust the z-index to make sure it's higher than other content */
+        }
+
+        /* Style the links inside the dropdown */
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+
+        /* Change color on hover */
+        .dropdown-content a:hover {
+          background-color: transparent;
+        }
+
+        /* Show the dropdown content when hovering over the dropdown button */
+        .dropdown:hover .dropdown-content {
+          display: block;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-container img {
+            margin-right: 0px; /* Adjust the margin as needed */
+        }
 
         #symptomTable thead {
             display: none; /* Hide the table headers by default */
@@ -29,6 +99,55 @@
 </head>
 
 <body>
+<header class="header-wrap">
+    <div class="container js-topbar-content-container">
+        <div class="header" style="min-height: 0px;">
+            <div class="jw-header-logo">
+                <div class="jw-header jw-header-title-container jw-header-text jw-header-text-toggle"
+                     data-stylable="false">
+                    <div class="logo-container">
+                        <!-- Add the image here -->
+                        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQAre4KdF-fxSJujfEfC6PWzP8crwgeU8nN_VNQbRDAsTHSiEi4"
+                             alt="Cancer TeleCare Logo" style="max-height: 50px;">
+                        <h1 id="jw-header-title" class="jw-header-title">
+                            Cancer TeleCare
+                        </h1>
+                        <div class="navbar">
+                            <a href="#home">Home</a>
+                            <div class="dropdown">
+                                <button class="dropbtn">Community Hub
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="#">Information</a>
+                                    <a href="#">Videos</a>
+                                    <a href="#">Podcasts</a>
+                                    <a href="#">Articles</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <button class="dropbtn">Services
+                                    <i class="fa fa-caret-down"></i>
+                                </button>
+                                <div class="dropdown-content">
+                                    <a href="/bookAppointment">Appointment Info</a>
+                                    <a href="#">Health Report</a>
+                                    <a href="#">To Do List</a>
+                                    <a href="#">Tracking Medication</a>
+                                    <a href="/symptom-history">Symptoms History</a>
+
+                                </div>
+                            </div>
+                            <a href="#Contact">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</header>
+
 <div class="container mt-5">
     <form method="post" action="/getSymptom" id="getSymptomForm">
         <div class="form-group">

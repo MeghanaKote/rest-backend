@@ -18,10 +18,6 @@ public class SymptomRequest {
 
     private LocalDateTime createdDateTime;
 
-    protected void onCreate() {
-    }
-
-
     public SymptomRequest() {
         this.createdDateTime = LocalDateTime.now();
     }
