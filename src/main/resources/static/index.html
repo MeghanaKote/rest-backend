@@ -204,6 +204,7 @@
                                 <a href="#">To Do List</a>
                                 <a href="#">Tracking Medication</a>
                                 <a href="/symptom-history">Symptoms History</a>
+                                <a href="#">Care Network</a>
 
                             </div>
                         </div>
@@ -245,16 +246,27 @@
                 <div class="form-group">
                     <label for="patientId">Patient ID:</label>
                     <input type="text" class="form-control" id="patientId" name="patientId" required>
+                    <p id="patientIdError" class="error-message"></p>
                 </div>
 
                 <div class="form-group">
                     <label for="symptom">Symptom:</label>
                     <input type="text" class="form-control" id="symptom" name="symptom" required>
+                    <p id="symptomError" class="error-message"></p>
                 </div>
 
+<!--                <div class="form-group">-->
+<!--                    <label for="severity">Severity:</label>-->
+<!--                    <input type="text" class="form-control" id="severity" name="severity" required>-->
+<!--                </div>-->
                 <div class="form-group">
                     <label for="severity">Severity:</label>
-                    <input type="text" class="form-control" id="severity" name="severity" required>
+                    <select class="form-control" id="severity" name="severity" required>
+                        <option value="Mild">Mild</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="Severe">Severe</option>
+                    </select>
+                    <p id="severityError" class="error-message"></p>
                 </div>
                 <button type="button" class="btn btn-primary" onclick="submitForm()">Register Symptom</button>
             </form>
@@ -273,6 +285,30 @@
             var patientId = form.elements.patientId.value;
             var symptom = form.elements.symptom.value;
             var severity = form.elements.severity.value;
+            var patientIdError = document.getElementById("patientIdError");
+            var symptomError   = document.getElementById("symptomError");
+            var severityError  = document.getElementById("severityError");
+
+            patientIdError.textContent = "";
+            symptomError.textContent = "";
+            severityError.textContent = "";
+
+        // Validate Patient ID (numbers only)
+        if (!/^[0-9]+$/.test(patientId)) {
+            patientIdError.textContent = "Patient ID should contain only numbers";
+            return false;
+        }
+
+        // Validate Symptom and Severity (letters only)
+        if (!/^[A-Za-z]+$/.test(symptom)) {
+            symptomError.textContent = "Symptom should contain only letters";
+            return false;
+        }
+
+        if (!/^[A-Za-z]+$/.test(severity)) {
+            severityError.textContent = "Severity should contain only letters";
+            return false;
+        }
 
             var data = {
                 patientId: patientId,
